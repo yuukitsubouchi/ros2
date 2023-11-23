@@ -8,8 +8,8 @@ pub = node.create_publisher(Int16, "countup", 10)   #パブリッシャのオブ
 n = 0 #カウント用変数
 def cb():          #17行目で定期実行されるコールバック関数
     global n       #関数を抜けてもnがリセットされないようにしている
-    msg = Person()#msg = Int16()  #メッセージの「オブジェクト」
-    msg.name = "坪内優輝" #msg.data = n   #msgオブジェクトの持つdataにnを結び付け
+    msg = Int16()  #メッセージの「オブジェクト」msg = Person()
+    msg.data = n   #msgオブジェクトの持つdataにnを結び付け msg.name = "坪内優輝"
     msg.age = n
     pub.publish(msg)        #pubの持つpublishでメッセージ送信
     n += 1
